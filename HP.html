@@ -1,0 +1,310 @@
+<p>&lt;!DOCTYPE html&gt;</p>
+<p>&lt;html lang=&quot;es&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&nbsp; &nbsp; &lt;**** name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>&nbsp; &nbsp; &lt;title&gt;Presos Pol&iacute;ticos De Cuba: Los Hermanos Perdomo&lt;/title&gt;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &lt;!-- Tailwind *** --&gt;</p>
+<p>&nbsp; &nbsp; &lt;****** src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;</p>
+<p>&nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp; &nbsp; &lt;!-- Chart.js --&gt;</p>
+<p>&nbsp; &nbsp; &lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;&gt;&lt;/script&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;!-- ******* --&gt;</p>
+<p>&nbsp; &nbsp; &lt;**** href=&quot;https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&amp;family=Open+Sans:wght@400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;script&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; tailwind.config = {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; theme: {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; extend: {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; colors: {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &apos;paper&apos;: &apos;#F9F7F1&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &apos;ink&apos;: &apos;#2D3748&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &apos;accent-red&apos;: &apos;#9B2C2C&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &apos;accent-blue&apos;: &apos;#2C5282&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &apos;highlight&apos;: &apos;#E2E8F0&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &apos;gold&apos;: &apos;#D69E2E&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fontFamily: {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; serif: [&apos;Merriweather&apos;, &apos;serif&apos;],</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; sans: [&apos;Open Sans&apos;, &apos;sans-serif&apos;],</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &lt;/script&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;style&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; body { background-color: #F9F7F1; color: #2D3748; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .timeline-line { position: absolute; left: 50%; transform: translateX(-50%); width: 4px; height: 100%; background-color: #CBD5E0; z-index: 0; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .chart-container { position: relative; width: 100%; max-width: 600px; height: 350px; max-height: 400px; margin: 0 auto; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; @media (max-width: 768px) { .timeline-line { left: 20px; } .chart-container { height: 300px; } }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .fade-in { animation: fadeIn 1s ease-in-out; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; /* Efecto hover **** tarjetas */</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .card-hover {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transition: ********* 0.2s ease, box-shadow 0.2s ease;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .card-hover:hover {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transform: translateY(-4px);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; box-shadow: 0 10px 20px rgba(0,0,0,0.08);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &lt;/style&gt;</p>
+<p><br></p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body class=&quot;font-sans antialiased selection:bg-accent-red selection:text-white&quot;&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;!-- Navegaci&oacute;n --&gt;</p>
+<p>&nbsp; &nbsp; &lt;nav class=&quot;sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-gray-200 shadow-sm&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;max-w-6xl mx-auto px-4 sm:px-6 lg:px-8&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;flex justify-******* h-16 items-center&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;flex-shrink-0 **** items-center&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;span class=&quot;font-***** font-bold text-** tracking-tight text-accent-red&quot;&gt;Presos Pol&iacute;ticos&lt;span class=&quot;text-ink&quot;&gt; De Cuba&lt;/span&gt;&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;hidden md:**** space-x-8&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;scrollToSection(&apos;profiles&apos;)&quot; class=&quot;text-gray-600 hover:text-accent-red ********** px-3 py-2 text-sm font-medium&quot;&gt;Perfiles&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;scrollToSection(&apos;timeline&apos;)&quot; class=&quot;text-gray-600 hover:text-accent-*** ********** px-3 py-2 text-sm font-medium&quot;&gt;Cronolog&iacute;a&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;****** onclick=&quot;scrollToSection(&apos;data&apos;)&quot; class=&quot;text-gray-600 hover:text-accent-red transition px-3 py-2 text-** font-medium&quot;&gt;La Condena&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;scrollToSection(&apos;voices&apos;)&quot; class=&quot;text-gray-600 hover:text-accent-red ********** px-3 py-2 text-** font-medium&quot;&gt;Testimonios&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;md:hidden flex items-center&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button id=&quot;mobile-menu-btn&quot; class=&quot;text-gray-6** text-2xl&quot;&gt;&equiv;&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;div id=&quot;mobile-menu&quot; class=&quot;hidden md:****** bg-paper border-b border-gray-200&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;px-2 pt-2 pb-3 space-y-1&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;****** onclick=&quot;scrollToSection(&apos;profiles&apos;)&quot; class=&quot;***** w-full text-left px-3 py-2 text-**** font-medium&quot;&gt;Perfiles&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;scrollToSection(&apos;timeline&apos;)&quot; class=&quot;block w-full text-left px-3 py-2 text-base font-medium&quot;&gt;Cronolog&iacute;a&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;scrollToSection(&apos;data&apos;)&quot; class=&quot;block w-full text-left px-3 py-2 text-**** font-medium&quot;&gt;La Condena&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button onclick=&quot;scrollToSection(&apos;voices&apos;)&quot; class=&quot;block w-**** text-left px-3 py-2 text-base font-medium&quot;&gt;Testimonios&lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &lt;/nav&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;**** class=&quot;max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-20&quot;&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Portada --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;section class=&quot;text-center space-y-6 fade-in&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;inline-block p-2 px-4 bg-accent-*** text-white text-** font-bold tracking-widest ********* rounded-full&quot;&gt;Campa&ntilde;a de Visibilizaci&oacute;n&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h1 class=&quot;text-4xl md:text-6xl font-***** font-bold text-ink leading-tight&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Los Hermanos &lt;**** class=&quot;text-accent-blue&quot;&gt;Perdomo&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/h1&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;mt-4 max-w-2xl mx-**** text-** text-gray-600 font-***** italic&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Jorge y Nadir: El rostro de la injusticia contra quienes sue&ntilde;** *** una Cuba libre.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;w-24 h-1 bg-accent-red mx-auto rounded&quot;&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Introducci&oacute;n --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;section class=&quot;prose prose-** mx-auto text-gray-600 text-justify&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Como parte *** ******** &lt;strong&gt;Presos Pol&iacute;ticos De Cuba&lt;/strong&gt;, *********** ** historia ** &lt;strong&gt;Jorge y Nadir Mart&iacute;n Perdomo&lt;/strong&gt;.&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; En *** Jos&eacute; de las Lajas, ** &uacute;nico &quot;delito&quot; fue ******* pac&iacute;********* pidiendo ******** ** 11 de ***** de 2021.&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hoy, sus condenas *********** uno de los ejemplos m&aacute;s claros ** la represi&oacute;n sist&eacute;mica en ** isla.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Botones de compartir --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;section class=&quot;text-center space-y-4&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-2xl font-***** font-bold text-ink&quot;&gt;Comparte **** campa&ntilde;a&lt;/h2&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-gray-600 max-w-2xl mx-auto text-sm&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Ayuda a *********** ** caso de los hermanos Perdomo y de todos los ****** pol&iacute;ticos en Cuba. Comparte esta p&aacute;gina en tus redes.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;**** flex-**** gap-3 justify-center&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onclick=&quot;shareOnTwitter()&quot;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class=&quot;px-4 py-2 bg-[#1DA1F2] text-white rounded-full text-sm font-semibold hover:bg-[#1A91DA] transition&quot;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Compartir en X (Twitter)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onclick=&quot;shareOnFacebook()&quot;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class=&quot;px-4 py-2 bg-[#1877F2] text-***** rounded-full text-sm font-******** hover:bg-[#145DBF] transition&quot;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ********* en Facebook</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;button</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; onclick=&quot;shareOnWhatsApp()&quot;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; class=&quot;px-4 py-2 bg-[#25D366] text-white rounded-full text-** font-semibold hover:bg-[#1EBE5C] transition&quot;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Compartir ** WhatsApp</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/button&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Perfiles --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;section id=&quot;profiles&quot; class=&quot;space-y-8 scroll-mt-24&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-3xl font-serif font-**** text-ink border-l-4 border-accent-blue pl-4&quot;&gt;Los Protagonistas&lt;/h2&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-8&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;bg-***** p-6 rounded-lg shadow-** border-t-4 border-accent-**** card-hover&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;flex items-center space-x-4 mb-4&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;h-16 w-16 bg-gray-2** rounded-**** flex items-center justify-center text-2xl&quot;&gt;👨🏻&zwj;🏫&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 class=&quot;text-xl font-bold text-ink&quot;&gt;Jorge Mart&iacute;n Perdomo&lt;/h3&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;**** class=&quot;text-sm text-accent-red font-semibold&quot;&gt;Sentencia: 8 A&ntilde;os&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-** text-gray-600&quot;&gt;Inform&aacute;**** y padre de familia. ** entereza en prisi&oacute;n ha sido denunciada *** su madre **** motivo de represalias adicionales.&lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;bg-***** p-6 rounded-lg shadow-md border-t-4 border-accent-blue card-hover&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;flex items-center space-x-4 mb-4&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;h-16 w-16 bg-gray-2** rounded-full **** items-****** justify-center text-2xl&quot;&gt;👨🏻&zwj;🏫&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 class=&quot;text-xl font-bold text-ink&quot;&gt;Nadir Mart&iacute;n Perdomo&lt;/h3&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;**** class=&quot;text-sm text-accent-red font-semibold&quot;&gt;Sentencia: 6 A&ntilde;os&lt;/span&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-sm text-gray-600&quot;&gt;******** ** ingl&eacute;s. ** salud se ** visto afectada por las *********** inhumanas de internamiento ** Quivic&aacute;n.&lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- L&iacute;*** ** ****** --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;section id=&quot;timeline&quot; class=&quot;space-y-8 scroll-mt-24&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-3** font-serif font-bold text-ink border-l-4 border-accent-blue pl-4&quot;&gt;L&iacute;nea de Tiempo&lt;/h2&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;relative py-8&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;timeline-line&quot;&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** id=&quot;timeline-container&quot; class=&quot;space-y-12&quot;&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Datos / Gr&aacute;ficos --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;section id=&quot;data&quot; class=&quot;space-y-** scroll-mt-24 bg-white p-8 rounded-** shadow-sm&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-3xl font-serif font-bold text-ink border-l-4 border-accent-*** pl-4&quot;&gt;Datos de ** Injusticia&lt;/h2&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;**** grid-cols-1 lg:grid-cols-2 gap-10&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;chart-container&quot;&gt;&lt;canvas id=&quot;sentenceChart&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;space-y-6&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;bg-***** p-6 rounded-lg border-l-4 border-gold&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h4 class=&quot;font-bold mb-2&quot;&gt;Criminalizaci&oacute;n *** Disenso&lt;/h4&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-sm text-gray-600&quot;&gt;En &lt;strong&gt;Presos Pol&iacute;ticos De Cuba&lt;/strong&gt;, documentamos c&oacute;mo ****** como &quot;Desacato&quot; se usan para silenciar voces cr&iacute;ticas.&lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;chart-container&quot; style=&quot;height: 250px;&quot;&gt;&lt;canvas id=&quot;chargesContextChart&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- (Opcional) Secci&oacute;n de testimonios vac&iacute;a por ***** --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;******* id=&quot;voices&quot; class=&quot;space-y-6 scroll-mt-24&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h2 class=&quot;text-3xl font-***** font-bold text-*** border-l-4 border-accent-blue pl-4&quot;&gt;Testimonios&lt;/h2&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-** text-gray-600&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Pr&oacute;ximamente a&ntilde;adiremos *********** de familiares, activistas y organizaciones que acompa&ntilde;an el **** de *** ******** Perdomo.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/section&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Footer --&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;****** class=&quot;border-t border-gray-300 pt-10 pb-6 text-center&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;font-bold text-accent-red text-** mb-2&quot;&gt;Presos Pol&iacute;***** De Cuba&lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-gray-5** text-sm italic&quot;&gt;&quot;Porque ** pueblo que ****** a sus presos, olvida su libertad.&quot;&lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &lt;/footer&gt;</p>
+<p>&nbsp; &nbsp; &lt;/main&gt;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &lt;script&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // Datos para ** l&iacute;*** de tiempo</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const timelineEvents = [</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { date: &quot;11J, 2021&quot;, title: &quot;La Protesta&quot;, desc: &quot;Marchan pac&iacute;ficamente en San Jos&eacute; de las Lajas.&quot;, icon: &quot;📢&quot;, side: &quot;left&quot; },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { date: &quot;17 de Julio, 2021&quot;, title: &quot;Arresto&quot;, desc: &quot;Detenidos tras ser citados por la polic&iacute;a.&quot;, icon: &quot;👮&zwj;♂️&quot;, side: &quot;right&quot; },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { date: &quot;Enero, 2022&quot;, title: &quot;Juicio Pol&iacute;tico&quot;, desc: &quot;Sentenciados sin pruebas de violencia real.&quot;, icon: &quot;⚖️&quot;, side: &quot;left&quot; },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { date: &quot;Hoy&quot;, title: &quot;Resistencia&quot;, desc: &quot;Permanecen en prisi&oacute;n bajo condiciones cr&iacute;ticas.&quot;, icon: &quot;✊&quot;, side: &quot;right&quot; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; ];</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; function renderTimeline() {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const container = document.getElementById(&apos;timeline-container&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; container.********* = timelineEvents.map(event =&gt; `</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;relative flex justify-******* items-****** w-**** md:w-3/4 mx-auto&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;w-5/12 ${event.side === &apos;left&apos; ? &apos;text-right&apos; : &apos;order-last text-left&apos;} px-4&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;bg-white p-4 rounded shadow-sm border border-gray-100&quot;&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h3 class=&quot;font-bold text-ink&quot;&gt;${event.title}&lt;/h3&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-accent-red text-xs font-bold&quot;&gt;${event.date}&lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;p class=&quot;text-xs text-gray-600&quot;&gt;${event.desc}&lt;/p&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;div class=&quot;z-20 bg-paper shadow w-10 h-10 rounded-full flex items-center justify-center text-xl&quot;&gt;${event.icon}&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;*** class=&quot;w-5/12&quot;&gt;&lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;/div&gt;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; `).join(&apos;&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // Gr&aacute;ficos con Chart.js</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; function initCharts() {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const **** = document.getElementById(&apos;sentenceChart&apos;).getContext(&apos;2d&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; new Chart(ctx1, {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: &apos;bar&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data: {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; labels: [&apos;Jorge (8 a&ntilde;os)&apos;, &apos;Nadir (6 a&ntilde;os)&apos;],</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; datasets: [{ label: &apos;A&ntilde;os de Condena&apos;, data: [8, 6], backgroundColor: &apos;#9B2C2C&apos; }]</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options: { responsive: true, maintainAspectRatio: false }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const ctx2 = document.getElementById(&apos;chargesContextChart&apos;).getContext(&apos;2d&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; new Chart(ctx2, {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; type: &apos;doughnut&apos;,</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data: {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; labels: [&apos;Desorden&apos;, &apos;Desacato&apos;, &apos;Atentado&apos;],</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; datasets: [{ data: [50, 30, 20], backgroundColor: [&apos;#2C5282&apos;, &apos;#D69E2E&apos;, &apos;#9B2C2C&apos;] }]</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; },</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; options: {&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; responsive: true,&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; maintainAspectRatio: false,&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; plugins: {&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title: { display: true, text: &apos;Cargos T&iacute;picos 11J&apos; }&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; });</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // Men&uacute; m&oacute;vil</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;mobile-menu-btn&apos;).addEventListener(&apos;click&apos;, () =&gt; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&apos;mobile-menu&apos;).classList.toggle(&apos;hidden&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; });</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // Scroll suave</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; function scrollToSection(id) {&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** ** = document.getElementById(id);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (el) el.scrollIntoView({ behavior: &apos;smooth&apos; });&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // Texto y URL para compartir</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const shareUrl = &apos;https://tusitio.org/hermanos-perdomo&apos;; // CAMBIA ESTO A TU URL REAL</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; const shareText = &apos;****** la historia de los presos pol&iacute;***** Jorge y Nadir Mart&iacute;n Perdomo y s&uacute;mate ** reclamo de libertad para ellos y para Cuba. #PresosPoliticosDeCuba #11J&apos;;</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // Compartir en X/Twitter</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; function shareOnTwitter() {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** text = encodeURIComponent(shareText);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ***** url = encodeURIComponent(shareUrl);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const twitterUrl = `https://twitter.com/intent/tweet?text=${text}&amp;url=${url}`;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; window.open(twitterUrl, &apos;_blank&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // ********* en Facebook</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; function shareOnFacebook() {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const url = encodeURIComponent(shareUrl);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const text = encodeURIComponent(shareText);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // Algunos navegadores aceptan tambi&eacute;n el par&aacute;metro &quot;quote&quot; **** ******* texto junto ** enlace.[web:22][web:25][web:28]</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&amp;quote=${text}`;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; window.open(facebookUrl, &apos;_blank&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // ********* en WhatsApp</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; function shareOnWhatsApp() {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const message = encodeURIComponent(`${shareText} ${shareUrl}`);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // ******* recomendado para mensaje prellenado.[web:23][web:29]</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const whatsappUrl = `https://api.whatsapp.com/send?text=${message}`;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; window.open(whatsappUrl, &apos;_blank&apos;);</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+<p><br></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; // Inicializaci&oacute;n</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; window.onload = () =&gt; {&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; renderTimeline();&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; initCharts();&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; };</p>
+<p>&nbsp; &nbsp; &lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+<p><br></p>
+<p><br></p>
+<p>Get ********* OneNote: https://aka.ms/GetOneNoteMobile</p>
+<div style="color: red">Word to HTML trial - please <a href="https://wordtohtml.net/site/payment">Go PRO</a> to get whole HTML.</div>
